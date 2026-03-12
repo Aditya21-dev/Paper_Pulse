@@ -1,66 +1,66 @@
-function Best_Authors() {
+function Best_Sellers() {
+
+  const books = [
+    {
+      title: "Atomic Habits",
+      author: "James Clear",
+      image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f"
+    },
+    {
+      title: "The Alchemist",
+      author: "Paulo Coelho",
+      image: "https://images.unsplash.com/photo-1512820790803-83ca734da794"
+    },
+    {
+      title: "Rich Dad Poor Dad",
+      author: "Robert Kiyosaki",
+      image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc"
+    },
+    {
+      title: "Ikigai",
+      author: "Héctor García",
+      image: "https://images.unsplash.com/photo-1528207776546-365bb710ee93"
+    },
+    {
+      title: "Deep Work",
+      author: "Cal Newport",
+      image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
+    }
+  ]
+
   return (
-    <section className="bg-[#F5E7A3] py-16">
+    <section className="py-20 bg-[#F5E7A3]">
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Best Professional & Favourite Authors
+        <h2 className="text-3xl font-bold mb-10 text-center">
+          Best Selling Books
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+        <div className="flex gap-6 overflow-x-auto pb-4">
 
-          {/* Author 1 */}
-          <div>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/5d/J._K._Rowling_2010.jpg"
-              alt="JK Rowling"
-              className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
-            />
-            <h3 className="font-semibold">J.K. Rowling</h3>
-            <p className="text-sm text-gray-700">
-              Creator of magical worlds
-            </p>
-          </div>
+          {books.map((book, index) => (
+            <div
+              key={index}
+              className="min-w-[220px] bg-white rounded-lg shadow hover:shadow-xl transition p-4"
+            >
 
-          {/* Author 2 */}
-          <div>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/1/1a/George_R._R._Martin_by_Gage_Skidmore_2.jpg"
-              alt="George R R Martin"
-              className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
-            />
-            <h3 className="font-semibold">George R.R. Martin</h3>
-            <p className="text-sm text-gray-700">
-              Master of epic fantasy
-            </p>
-          </div>
+              <img
+                src={book.image}
+                alt={book.title}
+                className="w-full h-64 object-cover rounded"
+              />
 
-          {/* Author 3 */}
-          <div>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Agatha_Christie.png"
-              alt="Agatha Christie"
-              className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
-            />
-            <h3 className="font-semibold">Agatha Christie</h3>
-            <p className="text-sm text-gray-700">
-              Queen of mystery
-            </p>
-          </div>
+              <h3 className="mt-4 font-semibold text-lg">
+                {book.title}
+              </h3>
 
-          {/* Author 4 */}
-          <div>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Stephen_King%2C_Comicon.jpg"
-              alt="Stephen King"
-              className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
-            />
-            <h3 className="font-semibold">Stephen King</h3>
-            <p className="text-sm text-gray-700">
-              Legend of horror fiction
-            </p>
-          </div>
+              <p className="text-sm text-gray-600">
+                {book.author}
+              </p>
+
+            </div>
+          ))}
 
         </div>
 
@@ -70,4 +70,4 @@ function Best_Authors() {
   )
 }
 
-export default Best_Authors
+export default Best_Sellers
