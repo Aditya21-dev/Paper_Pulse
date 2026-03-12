@@ -24,7 +24,7 @@ function Hero() {
 
         <div>
 
-          <img src={heroImage} alt="books"className="w-80"/>
+          <img src={heroImage} alt="books" className="w-80" />
 
         </div>
 
