@@ -1,7 +1,11 @@
 import Header_section from "../components/layout/Header_section"
+import Footer_section from "../components/layout/Footer_section"
 import Hero_section from "../components/home/Hero"
 import Books_Categories from "../components/home/Books_Categories"
-import Footer_section from "../components/layout/Footer_section"
+import Best_Sellers from "../components/home/Best_Seller"
+import Professional_Authors from "../components/home/Professional_Authors"
+import Review_Submission from "../components/home/Review_Submission"
+
 
 function HomePage() {
   return (
@@ -9,7 +13,11 @@ function HomePage() {
       <Header_section />
       <Hero_section />
       <Books_Categories />
+      <Best_Sellers />
+      <Professional_Authors />
+      <Review_Submission />
       <Footer_section/>
+
     </>
   )
 }
