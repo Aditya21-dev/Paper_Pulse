@@ -64,11 +64,16 @@
 import { Route, Routes } from "react-router-dom"
 import HomePage from "./pages/Home"
 import AboutPage from "./pages/About"
+import Signup from "./pages/Signup"
+import Login from "./pages/Login"
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route index element = {<Signup/>} />
+      <Route path='/Login' element = {<Login/>} />
+
+      <Route path="/home" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
     </Routes>
   )

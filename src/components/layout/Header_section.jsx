@@ -18,7 +18,7 @@ function Header_section() {
         <ul className="flex gap-8 text-gray-800 font-medium">
 
           <li className="cursor-pointer hover:text-white transition">
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
 
           <li className="cursor-pointer hover:text-white transition">
