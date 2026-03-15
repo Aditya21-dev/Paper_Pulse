@@ -23,6 +23,7 @@ function Signup() {
 
         localStorage.setItem("userdata", JSON.stringify(signfrm))
         navigator('/Login')
+        console.log(localStorage.getItem("userdata"))
     }
 
 

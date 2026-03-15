@@ -22,7 +22,7 @@ function Header_section() {
           </li>
 
           <li className="cursor-pointer hover:text-white transition">
-            Book Shelf
+            <Link to="/Book_Shelf">Book Shelf</Link>
           </li>
 
           <li className="cursor-pointer hover:text-white transition">
@@ -38,10 +38,6 @@ function Header_section() {
 
         {/* Icons */}
         <div className="flex items-center gap-6 text-xl text-gray-800">
-
-          <span className="cursor-pointer hover:text-red-500 transition">
-            <FaHeart />
-          </span>
 
           <span className="cursor-pointer hover:text-blue-500 transition">
             <FaCartArrowDown />
