@@ -1,5 +1,7 @@
 import Header_section from "../components/layout/Header_section"
 import Footer_section from "../components/layout/Footer_section"
+import { Link } from "react-router-dom"
+
 
 function Orders_Page() {
 
@@ -124,9 +126,11 @@ function Orders_Page() {
                                 <option>Net Banking</option>
                             </select>
 
+                            <Link to={"/Invoice"}>
                             <button className="w-full bg-[#E7D48A] py-3 rounded-lg font-semibold hover:bg-[#d8c26e] transition">
                                 Buy Now
                             </button>
+                             </Link>
 
                         </div>
 

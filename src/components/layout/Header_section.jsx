@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { FaCartArrowDown } from "react-icons/fa6";
 import { FaCircleUser } from "react-icons/fa6";
-import { FaHeart } from "react-icons/fa6";
+
 
 function Header_section() {
   return (
@@ -40,7 +40,7 @@ function Header_section() {
         <div className="flex items-center gap-6 text-xl text-gray-800">
 
           <span className="cursor-pointer hover:text-blue-500 transition">
-            <FaCartArrowDown />
+             <Link to="/Cart"><FaCartArrowDown /></Link>
           </span>
 
           <span className="cursor-pointer hover:text-black transition">
