@@ -80,7 +80,7 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" onClick={openBook}>
                                 <img
                                     src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d"
                                     alt="Book"
@@ -95,7 +95,7 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" onClick={openBook}>
                                 <img
                                     src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
                                     alt="Book"
@@ -110,7 +110,7 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" onClick={openBook}>
                                 <img
                                     src="https://images.unsplash.com/photo-1519682337058-a94d519337bc"
                                     alt="Book"
@@ -125,7 +125,7 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" onClick={openBook}>
                                 <img
                                     src="https://images.unsplash.com/photo-1528207776546-365bb710ee93"
                                     alt="Book"
@@ -140,7 +140,7 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" onClick={openBook}>
                                 <img
                                     src="https://images.unsplash.com/photo-1535909339361-9b15c0c1b40c"
                                     alt="Book"
