@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
 
 function LoginPage() {
 
@@ -17,10 +18,10 @@ function LoginPage() {
         e.preventDefault()
         let local_data = JSON.parse(localStorage.getItem("userdata"))
         if (logindata.email !== local_data.email || logindata.password !== local_data.password) {
-            alert("Something Went Wrong")
+            toast.error("Something Went Wrong")
         }
         else {
-            alert("welcome to Paper Pulse 📚")
+            toast.success("welcome to Paper Pulse 📚")
             navigate("/home")
         }
     }
