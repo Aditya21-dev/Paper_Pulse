@@ -1,6 +1,6 @@
 import Header_section from "../components/layout/Header_section"
 import Footer_section from "../components/layout/Footer_section"
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 function Orders_Page() {
 
@@ -12,11 +12,39 @@ function Orders_Page() {
         return <h1 className="text-center mt-20 text-2xl">No Order Found</h1>
     }
 
-    // values
-    const qty = book.qty || 1
+    const quentity = book.qty || 1
     const price = book.price || 0
     const delivery = 20
-    const total = (price * qty) + delivery
+    const total = (price * quentity) + delivery
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const navigate = useNavigate()
+
+    const placeOrder = async () => {
+
+        // ✅ YE MISSING THA
+        const orderData = {
+            userName: "Aditya Das",
+            userContact: "8839125240",
+            address: book.address,
+            bookName: book.name,
+            author: book.author,
+            quantity: quentity,
+            bookPrice: price,
+            totalPrice: total,
+            paymentType: "Cash on Delivery"
+        }
+
+        await fetch("http://localhost:3001/orders_details", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderData)
+        })
+
+        navigate("/Invoice")
+    }
 
     return (
         <>
@@ -27,7 +55,6 @@ function Orders_Page() {
                     {/* LEFT SIDE */}
                     <div className="lg:col-span-2 space-y-6">
 
-                        {/* USER DETAILS */}
                         <div className="bg-white p-6 rounded-xl shadow-md">
                             <h2 className="text-lg font-semibold mb-4 text-gray-800">
                                 Delivery Details
@@ -47,10 +74,7 @@ function Orders_Page() {
                             </div>
                         </div>
 
-
-                        {/* BOOK DETAILS */}
                         <div className="bg-white p-6 rounded-xl shadow-md flex gap-6">
-
                             <img
                                 src={book.img}
                                 alt="Book"
@@ -58,7 +82,6 @@ function Orders_Page() {
                             />
 
                             <div className="flex flex-col justify-between w-full">
-
                                 <div>
                                     <h3 className="text-lg font-semibold text-gray-800">
                                         {book.name}
@@ -72,19 +95,13 @@ function Orders_Page() {
                                         ₹{book.price}
                                     </p>
                                 </div>
-
                             </div>
-
                         </div>
 
                     </div>
 
-
-
                     {/* RIGHT SIDE */}
                     <div className="space-y-6">
-
-                        {/* PRICE DETAILS */}
                         <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
 
                             <h2 className="text-lg font-semibold text-gray-800">
@@ -98,7 +115,7 @@ function Orders_Page() {
 
                             <div className="flex justify-between text-sm">
                                 <span> Quantity </span>
-                                <span>{qty}</span>
+                                <span>{quentity}</span>
                             </div>
 
                             <div className="flex justify-between text-sm">
@@ -125,12 +142,12 @@ function Orders_Page() {
                                 <option>Net Banking</option>
                             </select>
 
-                            <Link to={"/Invoice"}>
-                                <button className="w-full bg-[#E7D48A] py-3 rounded-lg font-semibold hover:bg-[#d8c26e] transition">
-                                    Buy Now
-                                </button>
-                            </Link>
-
+                            {/* Link rehne diya */}
+                            <button
+                                onClick={placeOrder}
+                                className="w-full bg-[#E7D48A] py-3 rounded-lg font-semibold hover:bg-[#d8c26e] transition">
+                                Buy Now
+                            </button>
                         </div>
 
                     </div>
