@@ -1,11 +1,11 @@
 import Header_section from "../components/layout/Header_section"
 import Footer_section from "../components/layout/Footer_section"
 import { Link } from "react-router-dom"
-import { useLocation } from "react-router-dom"
 import { useState } from "react"
 
 function Book_Details_booking() {
   const [qty, setQty] = useState(1)
+  const [address, setAddress] = useState("")   // ✅ address state
 
   const increase = () => {
     setQty(qty + 1)
@@ -17,8 +17,22 @@ function Book_Details_booking() {
     }
   }
 
-  const location = useLocation()
-  const book = location.state
+  // ✅ localStorage se data
+  const book = JSON.parse(localStorage.getItem("selectedBook"))
+
+  // ✅ safety
+  if (!book) {
+    return <h1 className="text-center mt-20 text-2xl">No Book Selected</h1>
+  }
+
+  // ✅ save function (qty + address)
+  const saveData = () => {
+    localStorage.setItem("selectedBook", JSON.stringify({
+      ...book,
+      qty: qty,
+      address: address
+    }))
+  }
 
   return (
     <>
@@ -27,7 +41,6 @@ function Book_Details_booking() {
         <div className="w-full max-w-6xl h-[90vh] bg-white rounded-xl shadow-2xl p-8 md:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
           {/* LEFT SIDE */}
           <div className="flex flex-col items-center justify-center space-y-6 lg:space-y-8">
-            {/* Main Image */}
             <div className="w-[260px] h-[340px] flex items-center justify-center bg-gray-100 rounded-lg shadow-md overflow-hidden">
               <img
                 src={book?.img}
@@ -36,7 +49,6 @@ function Book_Details_booking() {
               />
             </div>
 
-            {/* Book Info */}
             <div className="text-center space-y-2">
               <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">
                  {book.name}
@@ -45,14 +57,13 @@ function Book_Details_booking() {
                 Author: {book.author}
               </p>
               <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
-                {book.price}
+                ₹{book.price}
               </p>
             </div>
           </div>
 
           {/* RIGHT SIDE */}
           <div className="flex flex-col justify-between space-y-6 lg:space-y-8">
-            {/* DETAILS */}
             <div className="space-y-4 lg:space-y-6">
               <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800">
                 Details:
@@ -103,6 +114,8 @@ function Book_Details_booking() {
                 </p>
                 <textarea
                   rows="3"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}   // ✅ save input
                   placeholder="Enter your delivery address..."
                   className="w-full p-4 border-2 border-gray-300 rounded-lg text-sm md:text-base focus:outline-none focus:border-blue-500 resize-vertical"
                 />
@@ -112,13 +125,17 @@ function Book_Details_booking() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row justify-end gap-4 pt-4 border-t">
               <Link to="/Cart">
-                <button className="flex-1 sm:flex-none px-6 py-3 border-2 border-black rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm md:text-base">
+                <button
+                  onClick={saveData}   // ✅ save before navigate
+                  className="flex-1 sm:flex-none px-6 py-3 border-2 border-black rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm md:text-base">
                   Add to Cart
                 </button>
               </Link>
 
               <Link to={"/Orders_page"}>
-                <button className="flex-1 sm:flex-none px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm md:text-base">
+                <button
+                  onClick={saveData}   // ✅ same here
+                  className="flex-1 sm:flex-none px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm md:text-base">
                   Buy Now
                 </button>
               </Link>
@@ -132,7 +149,3 @@ function Book_Details_booking() {
 }
 
 export default Book_Details_booking
-
-
-
-
