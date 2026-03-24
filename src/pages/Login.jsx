@@ -22,7 +22,8 @@ function LoginPage() {
         }
         else {
             toast.success("welcome to Paper Pulse 📚")
-            navigate("/home")
+            localStorage.setItem("isLogin", "true")
+            navigate("/")
         }
     }
     return (
@@ -44,7 +45,6 @@ function LoginPage() {
 
                 </form>
 
-                {/* Extra Links */}
                 <div className="text-center text-sm mt-4">
 
                     <p className="mb-2 cursor-pointer hover:underline"> Forgot Password? </p>

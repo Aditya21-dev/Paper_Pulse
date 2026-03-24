@@ -1,24 +1,21 @@
-
-
-
-
-
 import Header_section from "../components/layout/Header_section"
 import Footer_section from "../components/layout/Footer_section"
 import { useEffect, useState } from "react"
+import axios from "axios"
 
 function Invoice() {
 
     const [order, setOrder] = useState(null)
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/immutability
         getData()
     }, [])
 
     const getData = async () => {
-        const res = await fetch("http://localhost:3001/orders_details")
-        const data = await res.json()
-        setOrder(data[data.length - 1]) // last order
+        const res = await axios.get("http://localhost:3000/orders_details")
+        const data = res.data
+        setOrder(data[data.length - 1])
     }
 
     if (!order) return <h1 className="text-center mt-20 text-2xl">Loading...</h1>
@@ -35,7 +32,6 @@ function Invoice() {
 
                 <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 space-y-8">
 
-                    {/* Header */}
                     <div className="flex justify-between items-center border-b pb-4">
                         <h1 className="text-2xl font-bold text-gray-800">
                             Paper Pulse Invoice
@@ -47,7 +43,6 @@ function Invoice() {
                         </div>
                     </div>
 
-                    {/* Customer Details */}
                     <div>
                         <h2 className="font-semibold text-gray-800 mb-2">
                             Billed To:
@@ -62,7 +57,6 @@ function Invoice() {
                         </p>
                     </div>
 
-                    {/* Product Table */}
                     <div className="w-full">
 
                         <div className="grid grid-cols-4 border-b pb-2 font-semibold text-gray-700">
@@ -81,7 +75,6 @@ function Invoice() {
 
                     </div>
 
-                    {/* Total */}
                     <div className="border-t pt-4 space-y-2 text-sm">
 
                         <div className="flex justify-between">
@@ -106,7 +99,6 @@ function Invoice() {
 
                     </div>
 
-                    {/* Footer */}
                     <div className="text-center text-xs text-gray-500 border-t pt-4">
                         Thank you for shopping with Paper Pulse 📚
                         Every book holds a universe.

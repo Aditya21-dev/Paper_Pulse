@@ -1,13 +1,12 @@
 import Header_section from "../components/layout/Header_section"
 import Footer_section from "../components/layout/Footer_section"
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 function Orders_Page() {
 
-    //  localStorage se data
     const book = JSON.parse(localStorage.getItem("selectedBook"))
 
-    //  safety
     if (!book) {
         return <h1 className="text-center mt-20 text-2xl">No Order Found</h1>
     }
@@ -22,7 +21,6 @@ function Orders_Page() {
 
     const placeOrder = async () => {
 
-        // ✅ YE MISSING THA
         const orderData = {
             userName: "Aditya Das",
             userContact: "8839125240",
@@ -35,13 +33,8 @@ function Orders_Page() {
             paymentType: "Cash on Delivery"
         }
 
-        await fetch("http://localhost:3001/orders_details", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(orderData)
-        })
+        // ✅ axios use kiya
+        await axios.post("http://localhost:3000/orders_details", orderData)
 
         navigate("/Invoice")
     }
@@ -52,7 +45,6 @@ function Orders_Page() {
             <section className="bg-[#F5E7A3] min-h-screen py-10 px-6">
                 <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-6">
 
-                    {/* LEFT SIDE */}
                     <div className="lg:col-span-2 space-y-6">
 
                         <div className="bg-white p-6 rounded-xl shadow-md">
@@ -100,7 +92,6 @@ function Orders_Page() {
 
                     </div>
 
-                    {/* RIGHT SIDE */}
                     <div className="space-y-6">
                         <div className="bg-white p-6 rounded-xl shadow-md space-y-4">
 
@@ -142,14 +133,13 @@ function Orders_Page() {
                                 <option>Net Banking</option>
                             </select>
 
-                            {/* Link rehne diya */}
                             <button
                                 onClick={placeOrder}
                                 className="w-full bg-[#E7D48A] py-3 rounded-lg font-semibold hover:bg-[#d8c26e] transition">
                                 Buy Now
                             </button>
-                        </div>
 
+                        </div>
                     </div>
 
                 </div>
