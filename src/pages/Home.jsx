@@ -4,7 +4,7 @@ import Hero_section from "../components/home/Hero"
 import Books_Categories from "../components/home/Books_Categories"
 import Best_Sellers from "../components/home/Best_Seller"
 import Professional_Authors from "../components/home/Professional_Authors"
-import Review_Submission from "../components/home/Review_Submission"
+
 
 
 function HomePage() {
@@ -15,7 +15,6 @@ function HomePage() {
       <Books_Categories />
       <Best_Sellers />
       <Professional_Authors />
-      <Review_Submission />
       <Footer_section/>
 
     </>
