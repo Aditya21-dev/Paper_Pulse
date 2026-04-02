@@ -8,10 +8,7 @@ function Book_Shelf() {
 
     function openBook(book) {
 
-        // ✅ localStorage mein save (global use ke liye)
         localStorage.setItem("selectedBook", JSON.stringify(book))
-
-        // ✅ next page pe bhejna (instant use ke liye)
         navigate("/Book_details_booking")
     }
 
@@ -22,7 +19,6 @@ function Book_Shelf() {
             <section className="min-h-screen bg-[#F5E7A3] py-12">
                 <div className="max-w-7xl mx-auto px-6 flex gap-10">
 
-                    {/* Sidebar same */}
 
                     <div className="flex-1">
 
@@ -32,7 +28,7 @@ function Book_Shelf() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                            {/* CARD 1 */}
+
                             <div
                                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer"
                                 onClick={() => openBook({
@@ -50,7 +46,6 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            {/* CARD 2 */}
                             <div
                                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer"
                                 onClick={() => openBook({
@@ -58,8 +53,7 @@ function Book_Shelf() {
                                     author: "शरदचंद्र चट्टोपाध्याय",
                                     price: 499,
                                     img: "https://m.media-amazon.com/images/I/91CzA-rAtEL._UF1000,1000_QL80_.jpg"
-                                })}
-                            >
+                                })}>
                                 <img src="https://m.media-amazon.com/images/I/91CzA-rAtEL._UF1000,1000_QL80_.jpg"
                                     className="h-56 w-full object-cover" />
                                 <div className="p-4">
@@ -69,7 +63,6 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            {/* CARD 3 */}
                             <div
                                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer"
                                 onClick={() => openBook({
@@ -77,8 +70,7 @@ function Book_Shelf() {
                                     author: "Kazuo Ishiguro",
                                     price: 299,
                                     img: "https://m.media-amazon.com/images/I/71DgZ3LElXL._AC_UF1000,1000_QL80_.jpg"
-                                })}
-                            >
+                                })}>
                                 <img src="https://m.media-amazon.com/images/I/71DgZ3LElXL._AC_UF1000,1000_QL80_.jpg"
                                     className="h-56 w-full object-cover" />
                                 <div className="p-4">
@@ -88,7 +80,6 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            {/* CARD 4 */}
                             <div
                                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer"
                                 onClick={() => openBook({
@@ -96,8 +87,7 @@ function Book_Shelf() {
                                     author: "Markus Zusak",
                                     price: 350,
                                     img: "https://cdn.penguin.co.in/wp-content/uploads/2023/06/9781909531611.jpg"
-                                })}
-                            >
+                                })}>
                                 <img src="https://cdn.penguin.co.in/wp-content/uploads/2023/06/9781909531611.jpg"
                                     className="h-56 w-full object-cover" />
                                 <div className="p-4">
@@ -107,7 +97,6 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            {/* CARD 5 */}
                             <div
                                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer"
                                 onClick={() => openBook({
@@ -115,8 +104,7 @@ function Book_Shelf() {
                                     author: "John Steinbeck",
                                     price: 420,
                                     img: "https://m.media-amazon.com/images/I/51MIjeQtWAL._UF1000,1000_QL80_.jpg"
-                                })}
-                            >
+                                })}>
                                 <img src="https://m.media-amazon.com/images/I/51MIjeQtWAL._UF1000,1000_QL80_.jpg"
                                     className="h-56 w-full object-cover" />
                                 <div className="p-4">
@@ -126,7 +114,6 @@ function Book_Shelf() {
                                 </div>
                             </div>
 
-                            {/* CARD 6 */}
                             <div
                                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer"
                                 onClick={() => openBook({
@@ -134,8 +121,7 @@ function Book_Shelf() {
                                     author: "धर्मवीर भारती",
                                     price: 380,
                                     img: "https://www.motilalbanarsidass.com/cdn/shop/files/Gunahon_Ka_Devta_Hindi_by_Dharmveer_Bharati.jpg?v=1747831656"
-                                })}
-                            >
+                                })}>
                                 <img src="https://www.motilalbanarsidass.com/cdn/shop/files/Gunahon_Ka_Devta_Hindi_by_Dharmveer_Bharati.jpg?v=1747831656"
                                     className="h-56 w-full object-cover" />
                                 <div className="p-4">
@@ -157,5 +143,5 @@ function Book_Shelf() {
 
 export default Book_Shelf
 
-// ==========================================================================================================================
+
 

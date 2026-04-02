@@ -13,7 +13,7 @@ function Invoice() {
     }, [])
 
     const getData = async () => {
-        const res = await axios.get("http://localhost:3000/orders_details")
+        const res = await axios.get("http://127.0.0.1:8000/orders_details/")
         const data = res.data
         setOrder(data[data.length - 1])
     }
