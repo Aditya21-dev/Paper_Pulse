@@ -5,7 +5,7 @@ import { useState } from "react"
 
 function Book_Details_booking() {
   const [qty, setQty] = useState(1)
-  const [address, setAddress] = useState("")   // ✅ address state
+  const [address, setAddress] = useState("")  
 
   const increase = () => {
     setQty(qty + 1)
@@ -17,15 +17,8 @@ function Book_Details_booking() {
     }
   }
 
-  // ✅ localStorage se data
   const book = JSON.parse(localStorage.getItem("selectedBook"))
 
-  // ✅ safety
-  if (!book) {
-    return <h1 className="text-center mt-20 text-2xl">No Book Selected</h1>
-  }
-
-  // ✅ save function (qty + address)
   const saveData = () => {
     localStorage.setItem("selectedBook", JSON.stringify({
       ...book,
@@ -43,7 +36,7 @@ function Book_Details_booking() {
           <div className="flex flex-col items-center justify-center space-y-6 lg:space-y-8">
             <div className="w-[260px] h-[340px] flex items-center justify-center bg-gray-100 rounded-lg shadow-md overflow-hidden">
               <img
-                src={book?.img}
+                src={book.img}
                 alt="Book cover"
                 className="w-full h-full object-cover"
               />
@@ -62,7 +55,6 @@ function Book_Details_booking() {
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
           <div className="flex flex-col justify-between space-y-6 lg:space-y-8">
             <div className="space-y-4 lg:space-y-6">
               <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800">
@@ -82,7 +74,7 @@ function Book_Details_booking() {
                 </div>
               </div>
 
-              {/* Quantity */}
+
               <div className="space-y-3">
                 <p className="font-semibold text-base md:text-lg text-gray-800">
                   Quantity
@@ -91,8 +83,7 @@ function Book_Details_booking() {
                   <button
                     onClick={decrease}
                     className="w-12 h-12 border-2 border-gray-300 rounded-lg text-xl font-bold hover:bg-gray-100 transition-colors flex items-center justify-center"
-                    disabled={qty <= 1}
-                  >
+                    disabled={qty <= 1}>
                     -
                   </button>
                   <span className="text-2xl font-bold text-gray-900 min-w-[2rem] text-center">
@@ -100,14 +91,12 @@ function Book_Details_booking() {
                   </span>
                   <button
                     onClick={increase}
-                    className="w-12 h-12 border-2 border-gray-300 rounded-lg text-xl font-bold hover:bg-gray-100 transition-colors flex items-center justify-center"
-                  >
+                    className="w-12 h-12 border-2 border-gray-300 rounded-lg text-xl font-bold hover:bg-gray-100 transition-colors flex items-center justify-center">
                     +
                   </button>
                 </div>
               </div>
 
-              {/* Address */}
               <div className="space-y-3">
                 <p className="font-semibold text-base md:text-lg text-gray-800">
                   Address
@@ -115,18 +104,17 @@ function Book_Details_booking() {
                 <textarea
                   rows="3"
                   value={address}
-                  onChange={(e) => setAddress(e.target.value)}   // ✅ save input
+                  onChange={(e) => setAddress(e.target.value)}   
                   placeholder="Enter your delivery address..."
                   className="w-full p-4 border-2 border-gray-300 rounded-lg text-sm md:text-base focus:outline-none focus:border-blue-500 resize-vertical"
                 />
               </div>
             </div>
 
-            {/* Buttons */}
             <div className="flex flex-col sm:flex-row justify-end gap-4 pt-4 border-t">
               <Link to="/Cart">
                 <button
-                  onClick={saveData}   // ✅ save before navigate
+                  onClick={saveData}  
                   className="flex-1 sm:flex-none px-6 py-3 border-2 border-black rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm md:text-base">
                   Add to Cart
                 </button>
@@ -134,7 +122,7 @@ function Book_Details_booking() {
 
               <Link to={"/Orders_page"}>
                 <button
-                  onClick={saveData}   // ✅ same here
+                  onClick={saveData} 
                   className="flex-1 sm:flex-none px-6 py-3 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-sm md:text-base">
                   Buy Now
                 </button>

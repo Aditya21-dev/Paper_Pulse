@@ -34,7 +34,7 @@ function Orders_Page() {
         }
 
         // ✅ axios use kiya
-        await axios.post("http://localhost:3000/orders_details", orderData)
+        await axios.post("http://127.0.0.1:8000/orders_details/", orderData)
 
         navigate("/Invoice")
     }
